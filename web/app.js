@@ -1,5 +1,5 @@
 Ext.application({
-    name: 'cfc',
-    extend: 'cfc.Application',
+    name: 'cfcmms',
+    extend: 'cfcmms.Application',
     autoCreateViewport: true
 });

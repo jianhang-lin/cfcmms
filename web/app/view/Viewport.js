@@ -1,8 +1,8 @@
-Ext.define('cfc.view.Viewport', {
+Ext.define('cfcmms.view.Viewport', {
     extend: 'Ext.container.Viewport',
     requires: [
         'Ext.layout.container.Fit',
-        'cfc.view.Main'
+        'cfcmms.view.Main'
     ],
     layout: {
         type: 'fit'

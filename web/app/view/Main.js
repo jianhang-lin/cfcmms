@@ -1,4 +1,4 @@
-Ext.define('cfc.view.Main', {
+Ext.define('cfcmms.view.Main', {
     extend: 'Ext.container.Container',
     requires: [
         'Ext.tab.Panel',
