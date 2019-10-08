@@ -10,6 +10,7 @@ Ext.define('app.view.Main', {
     },
     items: [
         {
+            id: 'west',
             region: 'west',
             xtype: 'panel',
             title: 'west',
