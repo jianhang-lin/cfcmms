@@ -1,13 +1,17 @@
-Ext.define('cfcmms.view.Viewport', {
+Ext.define('app.view.Viewport', {
     extend: 'Ext.container.Viewport',
     requires: [
         'Ext.layout.container.Fit',
-        'cfcmms.view.Main'
+        'app.view.Main'
     ],
     layout: {
         type: 'fit'
     },
     items: [{
         xtype: 'app-main'
-    }]
+    }],
+    initComponent: function () {
+        console.log("Viewport initComponent..");
+        this.callParent(arguments);
+    }
 });
