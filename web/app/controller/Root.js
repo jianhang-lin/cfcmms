@@ -15,5 +15,6 @@ Ext.define('app.controller.Root', {
 
     onClickButton: function () {
         console.log("onClickButton.....");
+        Ext.Msg.confirm('Confirm', 'Are you sure?');
     }
 });
