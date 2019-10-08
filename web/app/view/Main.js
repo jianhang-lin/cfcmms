@@ -17,8 +17,8 @@ Ext.define('app.view.Main', {
             html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
             split: true,
             tbar: [{
-                text: 'Button',
-                handler: 'onClickButton'
+                id: "onClickButton",
+                text: 'Button'
             }]
         },{
             region: 'center',
