@@ -8,8 +8,19 @@ Ext.define('app.view.Main', {
     layout: {
         type: 'border'
     },
+    uses: [
+      'app.view.main.region.Top', 'app.view.main.region.Bottom'
+    ],
     items: [
         {
+            id: 'maintop',
+            title: "fccc",
+            xtype: 'maintop',
+            region: 'north'
+        }, {
+            xtype: 'mainbottom',
+            region: 'south'
+        }, {
             id: 'west',
             region: 'west',
             xtype: 'panel',
