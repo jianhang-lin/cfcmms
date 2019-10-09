@@ -55,7 +55,11 @@ Ext.define("app.view.main.region.Top", {
             glyph: 0xf002
         }, {
             text: '设置',
-            glyph: 0xf013
+            glyph: 0xf013,
+        }, {
+            id: 'hiddenTopBottom',
+            tooltip: '隐藏顶部和底部区域',
+            glyph: 0xf102
         }];
         this.listeners = {
             afterrender: function () {

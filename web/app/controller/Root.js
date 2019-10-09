@@ -49,6 +49,9 @@ Ext.define('app.controller.Root', {
         this.control({
             "#onClickButton": {
                 click: this.onClickButton
+            },
+            "#hiddenTopBottom": {
+                click: this.hiddenTopBottom
             }
         });
     },
@@ -61,5 +64,34 @@ Ext.define('app.controller.Root', {
                 Ext.getCmp("west").setTitle("修改后的title");
             }
         }, this);
+    },
+
+    hiddenTopBottom: function () {
+        console.log("hiddenTopBottom...");
+        Ext.getCmp("maintop").hide();
+        Ext.getCmp("mainbottom").hide();
+        if (!this.showButton) {
+            this.showButton = Ext.widget('component', {
+                glyph: 0xf103,
+                //view: this.getView(),
+                floating: true,
+                x : document.body.clientWidth -32,
+                y: 0,
+                height: 4,
+                width: 26,
+                style: 'background-color:#cde6c7',
+                listeners: {
+                    el: {
+                        click: function (el) {
+                            var c = Ext.getCmp(el.target.id);
+                            Ext.getCmp("maintop").show();
+                            Ext.getCmp("mainbottom").show();
+                            c.hide();
+                        }
+                    }
+                }
+            })
+        };
+        this.showButton.show();
     }
 });
