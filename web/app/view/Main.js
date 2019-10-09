@@ -32,14 +32,16 @@ Ext.define('app.view.Main', {
             tbar: [{
                 id: "onClickButton",
                 text: 'Button'
-            }]
+            }],
+            glyph: 0xf013
         },{
             region: 'center',
             xtype: 'tabpanel',
             items: [{
                 title: 'Center Tab 1',
-                html: '<h2>Content appropriate for the current navigation.</h2>'
-            }]
+                html: '<h2>Content appropriate for the current navigation.</h2>',
+                glyph: 0xf012
+            }],
         }
     ],
     initComponent: function () {
