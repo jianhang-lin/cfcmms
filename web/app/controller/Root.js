@@ -1,6 +1,12 @@
 Ext.define('app.controller.Root', {
     extend: 'Ext.app.Controller',
     xtype: "root",
+    models: [
+        'MainModel'
+    ],
+    stores: [
+        'MainStore'
+    ],
     views: [
         'Main'
     ],
@@ -9,6 +15,9 @@ Ext.define('app.controller.Root', {
         this.control({
             "#onClickButton": {
                 click: this.onClickButton
+            },
+            "#west": {
+                afterrender: this.loadMain
             }
         });
     },
@@ -21,5 +30,9 @@ Ext.define('app.controller.Root', {
                 Ext.getCmp("west").setTitle("修改后的title");
             }
         }, this);
+    },
+    loadMain: function () {
+        var store = Ext.getStore("MainStore");
+        console.log("Root.js loadMain....." + store.getAt(0));
     }
 });
