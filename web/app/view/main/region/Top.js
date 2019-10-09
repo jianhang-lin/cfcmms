@@ -19,6 +19,7 @@ Ext.define("app.view.main.region.Top", {
             text: ""
         }, '->', {
             text: '菜单',
+            iconCls: 'fa-bars',
             menu: [
                 {
                     text: '工程管理',
