@@ -14,10 +14,11 @@ Ext.define('app.view.Main', {
     items: [
         {
             id: 'maintop',
-            title: "fccc",
+            title: "",
             xtype: 'maintop',
             region: 'north'
         }, {
+            id: 'mainbottom',
             xtype: 'mainbottom',
             region: 'south'
         }, {

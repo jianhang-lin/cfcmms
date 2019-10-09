@@ -1,8 +1,15 @@
 Ext.define('app.view.main.region.Bottom', {
     extend: 'Ext.toolbar.Toolbar',
     alias: 'widget.mainbottom',
-    items: [
-        {
+    uses: [
+        'app.ux.ButtonTransparent'
+    ],
+    defaults: {
+        xtype: 'buttontransparent'
+    },
+    initComponent: function () {
+        console.log("Bottom initComponent...");
+        this.items = [{
             id: "bottom.company",
             text: '使用单位：',
             glyph: 0xf0f7
@@ -28,6 +35,20 @@ Ext.define('app.view.main.region.Bottom', {
         }, {
             id: "service.copyright",
             text: '©'
-        }
-    ]
+        }];
+        this.listeners = {
+            afterrender: function () {
+                console.log("Top afterrender..");
+                // 设置成透明
+                this.setTransparent(document.getElementById("mainbottom-innerCt"));
+            }
+        };
+        this.callParent(arguments);
+    },
+
+    setTransparent: function (b) {
+        b.style.backgroundImage = '#FFF';
+        b.style.backgroundColor = '#FFF';
+        b.style.borderColor = '#FFF';
+    }
 });

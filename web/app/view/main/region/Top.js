@@ -1,6 +1,12 @@
 Ext.define("app.view.main.region.Top", {
     extend: "Ext.toolbar.Toolbar",
     alias: "widget.maintop",
+    uses: [
+        'app.ux.ButtonTransparent'
+    ],
+    defaults: {
+        xtype: 'buttontransparent'
+    },
     initComponent: function () {
         console.log("Top init..");
         this.items = [{
@@ -51,6 +57,19 @@ Ext.define("app.view.main.region.Top", {
             text: '设置',
             glyph: 0xf013
         }];
+        this.listeners = {
+            afterrender: function () {
+                console.log("Top afterrender..");
+                // 设置成透明
+                this.setTransparent(document.getElementById("maintop-innerCt"));
+            }
+        };
         this.callParent(arguments);
+    },
+
+    setTransparent: function (b) {
+        b.style.backgroundImage = '#FFF';
+        b.style.backgroundColor = '#FFF';
+        b.style.borderColor = '#FFF';
     }
 });
