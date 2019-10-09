@@ -19,7 +19,7 @@ Ext.define("app.view.main.region.Top", {
             text: ""
         }, '->', {
             text: '菜单',
-            iconCls: 'fa-bars',
+            glyph: 0xf0c9,
             menu: [
                 {
                     text: '工程管理',
@@ -33,15 +33,23 @@ Ext.define("app.view.main.region.Top", {
                 }
             ]
         }, ' ', ' ', {
-            text: '主页'
+            text: '主页',
+            glyph: 0xf015
         }, {
-            text: '帮助'
+            text: '帮助',
+            glyph: 0xf059
         }, {
-            text: '关于'
+            text: '关于',
+            glyph: 0xf06a
         }, {
-            text: '注销'
+            text: '注销',
+            glyph: 0xf011
         }, '->', '->', {
-            text: '设置'
+            text: '搜索',
+            glyph: 0xf002
+        }, {
+            text: '设置',
+            glyph: 0xf013
         }];
         this.callParent(arguments);
     }

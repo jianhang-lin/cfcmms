@@ -43,6 +43,7 @@ Ext.define('app.view.Main', {
     ],
     initComponent: function () {
         console.log("view/Main.js initComponent..");
+        Ext.setGlyphFontFamily('FontAwesome');
         this.callParent(arguments);
     }
 });
