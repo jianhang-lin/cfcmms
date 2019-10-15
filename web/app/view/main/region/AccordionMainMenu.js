@@ -1,13 +1,48 @@
 Ext.define('app.view.main.region.AccordionMainMenu', {
    extend: 'Ext.panel.Panel',
    alias: 'widget.mainmenuaccordion',
-   title: '系统菜单',
+   title: '导航菜单',
    glyph: 0xf0c9,
    layout: {
        type: 'accordion',
        animate: true
    },
    viewModel: 'main',
+    tools: [
+        {
+            id: 'up',
+            itemId: 'up',
+            type: 'up',
+            tooltip: '显示树状菜单',
+            hidden: false,
+            handler: function () {
+                console.log("显示树状菜单");
+                Ext.getCmp("mainmenutree").show();
+                Ext.getCmp("mainmenuaccordion").hide();
+            }
+        }, {
+            type: 'toggle',
+            tooltip: '切换到标准菜单',
+            hidden: false,
+            handler: function () {
+                console.log("切换到标准菜单");
+            }
+        }, {
+            type: 'collapse',
+            tooltip: '折叠所有菜单项',
+            hidden: true,
+            handler: function () {
+                console.log("折叠所有菜单项");
+            }
+        }, {
+            type: 'pin',
+            tooltip: '层叠方式显示菜单',
+            hidden: true,
+            handler: function () {
+                console.log("层叠方式显示菜单");
+            }
+        }
+    ],
    initComponent: function () {
        console.log("AccordionMainMenu initComponent...");
        this.items = [];
