@@ -33,7 +33,7 @@ Ext.define('app.view.main.region.MainMenuTree', {
                     moduleName: menumodule.module,
                     text: menumodule.text,
                     leaf: true
-                }
+                };
                 menuitem.appendChild(childnode);
             }
         }

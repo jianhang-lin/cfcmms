@@ -9,7 +9,15 @@ Ext.define("app.view.main.region.MainMenuToolbar", {
             glyph: 0xf100,
             tooltip: '在左边栏中显示树状菜单',
             disableMouseOver: true,
-            margin: '0 -5 0 0'
+            margin: '0 -5 0 0',
+            handler: function () {
+                console.log("showLeftMenuRegion..." + Ext.getCmp("mainmenutree").hidden);
+                if (Ext.getCmp("mainmenutree").hidden) {
+                    Ext.getCmp("mainmenutree").show();
+                } else {
+                    Ext.getCmp("mainmenutree").hide();
+                }
+            }
         }, {
             glyph: 0xf102,
             tooltip: '在顶部区域显示菜单',

@@ -30,6 +30,8 @@ Ext.define('app.view.Main', {
             xtype: 'mainbottom',
             region: 'south'
         }, {
+            id: 'mainmenutree',
+            title: '导航菜单',
             region: 'west',
             xtype: 'mainmenutree',
             width: 250,
