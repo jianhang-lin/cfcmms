@@ -1,7 +1,7 @@
 Ext.define('app.view.main.region.MainMenuTree', {
     extend: 'Ext.tree.Panel',
     alias: 'widget.mainmenutree',
-    title: '系统菜单',
+    title: '导航菜单',
     glyph: 0xf0c9,
     rootVisible: false,
     lines: true,
@@ -15,19 +15,8 @@ Ext.define('app.view.main.region.MainMenuTree', {
             hidden: false,
             handler: function () {
                 console.log("显示折叠菜单");
-                this.hidden = true;
-                Ext.getCmp("up").show();
-            }
-        }, {
-            id: 'up',
-            itemId: 'up',
-            type: 'up',
-            tooltip: '显示树状菜单',
-            hidden: true,
-            handler: function () {
-                console.log("显示树状菜单");
-                Ext.getCmp("up").hide();
-                Ext.getCmp("down").show();
+                Ext.getCmp("mainmenutree").hide();
+                Ext.getCmp("mainmenuaccordion").show();
             }
         }, {
             type: 'toggle',
