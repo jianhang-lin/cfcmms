@@ -3,7 +3,8 @@ Ext.define("app.view.main.region.Top", {
     alias: "widget.maintop",
     uses: [
         'app.ux.ButtonTransparent',
-        'app.view.main.region.ButtonMainMenu'
+        'app.view.main.region.ButtonMainMenu',
+        'app.view.main.region.MainMenuTree'
     ],
     defaults: {
         xtype: 'buttontransparent'

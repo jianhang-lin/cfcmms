@@ -26,18 +26,10 @@ Ext.define('app.view.Main', {
             xtype: 'mainbottom',
             region: 'south'
         }, {
-            id: 'west',
             region: 'west',
-            xtype: 'panel',
-            title: 'west',
+            xtype: 'mainmenutree',
             width: 250,
-            html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
-            split: true,
-            tbar: [{
-                id: "onClickButton",
-                text: 'Button'
-            }],
-            glyph: 0xf013
+            split: true
         },{
             region: 'center',
             xtype: 'tabpanel',

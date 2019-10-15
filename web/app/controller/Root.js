@@ -28,9 +28,6 @@ Ext.define('app.controller.Root', {
                 }
                 Ext.getCmp("system.version").setText(store.getAt(0).get("system").version);
 
-                // set side
-                Ext.getCmp("west").setTitle(store.getAt(0).get("name"));
-
                 // set bottom
                 Ext.getCmp("bottom.company").setText(Ext.getCmp("bottom.company").getText() + store.getAt(0).get("user").name);
                 Ext.getCmp("bottom.user").setText(Ext.getCmp("bottom.user").getText() + store.getAt(0).get("user").name);
