@@ -48,6 +48,32 @@ Ext.define("app.view.module.region.GridToolbar", {
                text: '下载所有附件',
                glyph: 0xf019
            }]
+       }, {
+           xtype: 'splitbutton',
+           glyph: 0xf0ce,
+           menu: [
+               {
+                   text: '列表导出至excel',
+                   glyph: 0xf0ce
+               }, '-', {
+                   text: '选中记录导出至excel',
+                   glyph: 0xf0ce
+               }
+           ]
+       }, {
+           xtype: "splitbutton",
+           glyph: 0xf02f,
+           menu: [
+               {
+                   text: '打印当前页',
+                   glyph: 0xf02f
+               }, {
+                   text: '打印所有记录',
+                   glyph: 0xf02f
+               }
+           ]
+       }, '-', '筛选', {
+           width: 60
        }];
        this.callParent(arguments);
    }
