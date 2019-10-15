@@ -35,7 +35,8 @@ Ext.define('app.view.Main', {
             region: 'west',
             xtype: 'mainmenutree',
             width: 250,
-            split: true
+            split: true,
+            hidden: true
         }, {
             id: 'mainmenuaccordion',
             region: 'west',
