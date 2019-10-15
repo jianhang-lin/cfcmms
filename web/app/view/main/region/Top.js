@@ -3,7 +3,8 @@ Ext.define("app.view.main.region.Top", {
     alias: "widget.maintop",
     uses: [
         'app.ux.ButtonTransparent',
-        'app.view.main.region.ButtonMainMenu'
+        'app.view.main.region.ButtonMainMenu',
+        'app.view.main.menu.SettingMenu'
     ],
     defaults: {
         xtype: 'buttontransparent'
@@ -42,8 +43,7 @@ Ext.define("app.view.main.region.Top", {
             text: '搜索',
             glyph: 0xf002
         }, {
-            text: '设置',
-            glyph: 0xf013,
+            xtype: 'settingmenu'
         }, {
             id: 'hiddenTopBottom',
             tooltip: '隐藏顶部和底部区域',
