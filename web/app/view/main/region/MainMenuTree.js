@@ -8,31 +8,45 @@ Ext.define('app.view.main.region.MainMenuTree', {
     viewModel: 'main',
     tools: [
         {
-            itemId: 'up',
-            type: 'up',
-            tooltip: '在上面显示菜单条',
+            id: 'down',
+            itemId: 'down',
+            type: 'down',
+            tooltip: '显示折叠菜单',
             hidden: false,
             handler: function () {
-                console.log("在上面显示菜单条");
+                console.log("显示折叠菜单");
+                this.hidden = true;
+                Ext.getCmp("up").show();
             }
         }, {
-            type: 'expand',
-            tooltip: '展开所有菜单项',
+            id: 'up',
+            itemId: 'up',
+            type: 'up',
+            tooltip: '显示树状菜单',
+            hidden: true,
+            handler: function () {
+                console.log("显示树状菜单");
+                Ext.getCmp("up").hide();
+                Ext.getCmp("down").show();
+            }
+        }, {
+            type: 'toggle',
+            tooltip: '切换到标准菜单',
             hidden: false,
             handler: function () {
-                console.log("展开所有菜单项");
+                console.log("切换到标准菜单");
             }
         }, {
             type: 'collapse',
             tooltip: '折叠所有菜单项',
-            hidden: false,
+            hidden: true,
             handler: function () {
                 console.log("折叠所有菜单项");
             }
         }, {
             type: 'pin',
             tooltip: '层叠方式显示菜单',
-            hidden: false,
+            hidden: true,
             handler: function () {
                 console.log("层叠方式显示菜单");
             }
