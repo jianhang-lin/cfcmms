@@ -9,7 +9,11 @@ Ext.define('app.view.Main', {
         type: 'border'
     },
     uses: [
-      'app.view.main.region.Top', 'app.view.main.region.Bottom', 'app.view.main.region.MainMenuToolbar'
+        'app.view.main.region.Top',
+        'app.view.main.region.Bottom',
+        'app.view.main.region.MainMenuToolbar',
+        'app.view.main.region.MainMenuTree',
+        'app.view.main.region.AccordionMainMenu'
     ],
     items: [
         {
@@ -30,7 +34,12 @@ Ext.define('app.view.Main', {
             xtype: 'mainmenutree',
             width: 250,
             split: true
-        },{
+        }, {
+            region: 'west',
+            xtype: 'mainmenuaccordion',
+            width: 250,
+            split: true
+        }, {
             region: 'center',
             xtype: 'tabpanel',
             items: [{
