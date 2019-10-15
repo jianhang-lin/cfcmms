@@ -2,10 +2,10 @@ Ext.define('app.controller.Root', {
     extend: 'Ext.app.Controller',
     xtype: "root",
     models: [
-        'MainModel'
+        'MainModel', 'SystemMenuModel'
     ],
     stores: [
-        'MainStore'
+        'MainStore', 'SystemMenuStore'
     ],
     views: [
         'Main'
@@ -46,6 +46,7 @@ Ext.define('app.controller.Root', {
                 Ext.getCmp("service.copyright").setText(Ext.getCmp("service.copyright").getText() + store.getAt(0).get("service").copyright);
             }
         });
+
         this.control({
             "#onClickButton": {
                 click: this.onClickButton
