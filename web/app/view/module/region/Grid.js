@@ -2,10 +2,13 @@ Ext.define("app.view.module.region.Grid",{
     extend: 'Ext.grid.Panel',
     alias: 'widget.modulegrid',
     uses: [
-
+        'app.view.module.region.GridToolbar'
     ],
     dockedItems: [
-
+        {
+            xtype: 'gridtoolbar',
+            dock: 'top'
+        }
     ],
     columns: [
         {
