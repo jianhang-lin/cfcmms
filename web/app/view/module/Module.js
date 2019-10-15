@@ -5,7 +5,8 @@ Ext.define('app.view.module.Module', {
 
    ],
    uses: [
-       'app.view.module.region.Navigate'
+       'app.view.module.region.Navigate',
+       'app.view.module.region.Grid'
    ],
    controller: '',
    viewModel: {
@@ -19,6 +20,9 @@ Ext.define('app.view.module.Module', {
            width: 250,
            collapsible: true,
            split: true
+       }, {
+           xtype: 'modulegrid',
+           region: 'center'
        }];
        this.callParent(arguments);
    }
