@@ -6,7 +6,8 @@ Ext.define('app.view.module.Module', {
    ],
    uses: [
        'app.view.module.region.Navigate',
-       'app.view.module.region.Grid'
+       'app.view.module.region.Grid',
+       'app.view.module.region.Detail'
    ],
    controller: '',
    viewModel: {
@@ -23,6 +24,13 @@ Ext.define('app.view.module.Module', {
        }, {
            xtype: 'modulegrid',
            region: 'center'
+       }, {
+           xtype: 'recorddetail',
+           region: 'east',
+           width: 250,
+           collapsible: true,
+           collapseMode: 'Mini',
+           split: true
        }];
        this.callParent(arguments);
    }
