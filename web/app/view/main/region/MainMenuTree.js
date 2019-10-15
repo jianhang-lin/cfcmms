@@ -44,11 +44,14 @@ Ext.define('app.view.main.region.MainMenuTree', {
             }
         }
     ],
+    listeners: {
+        itemclick: 'onMainMenuClick'
+    },
     initComponent: function () {
         console.log("MainMenuTree initComponent...");
         this.store = Ext.create('Ext.data.TreeStore', {
             root: {
-                text: '系统菜单',
+                text: '导航菜单',
                 leaf: false,
                 expanded: true,
                 children: []
@@ -98,7 +101,7 @@ Ext.define('app.view.main.region.MainMenuTree', {
                             text: menuitem.text,
                             icon: menuitem.icon,
                             glyph: menuitem.glyph,
-                            handler: 'onMainMenuClick'
+                            handler: this.onMainMenuClick
                         })
                     });
                     var item = {
@@ -113,5 +116,14 @@ Ext.define('app.view.main.region.MainMenuTree', {
             }
         });
         return items;
+    },
+    onMainMenuClick: function (s, r) {
+        console.log("tree onMainMenuClick");
+        var maincenter = Ext.getCmp("maincenter");
+        maincenter.setActiveTab(maincenter.add({
+            xtype: 'panel',
+            closabel: true,
+            reorderable: true
+        }))
     }
 });

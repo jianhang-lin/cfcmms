@@ -44,6 +44,7 @@ Ext.define('app.view.Main', {
             split: true,
             hidden: true
         }, {
+            id: "maincenter",
             region: 'center',
             xtype: 'tabpanel',
             items: [{
