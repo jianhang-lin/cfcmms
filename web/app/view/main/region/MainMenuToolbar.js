@@ -12,13 +12,10 @@ Ext.define("app.view.main.region.MainMenuToolbar", {
             margin: '0 -5 0 0',
             handler: function () {
                 console.log("showLeftMenuRegion..." + Ext.getCmp("mainmenutree").hidden);
-                /*if (Ext.getCmp("mainmenutree").hidden) {
-                    Ext.getCmp("mainmenutree").show();
-                } else {
-                    Ext.getCmp("mainmenutree").hide();
-                }*/
                 Ext.getCmp("mainmenutree").show();
                 Ext.getCmp("buttonmainmenu").hide();
+
+                Ext.getCmp("mainmenutoolbar").hide();
             }
         }, {
             glyph: 0xf102,
