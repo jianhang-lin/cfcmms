@@ -6,6 +6,9 @@ Ext.define('app.view.main.region.MainMenuTree', {
     rootVisible: false,
     lines: true,
     viewModel: 'main',
+    users: [
+        'app.view.module.Module'
+    ],
     tools: [
         {
             id: 'down',
@@ -120,10 +123,10 @@ Ext.define('app.view.main.region.MainMenuTree', {
     onMainMenuClick: function (s, r) {
         console.log("tree onMainMenuClick");
         var maincenter = Ext.getCmp("maincenter");
-        maincenter.setActiveTab(maincenter.add({
-            xtype: 'panel',
+        var moduleTab = Ext.create('app.view.module.Module', {
             closabel: true,
             reorderable: true
-        }))
+        });
+        maincenter.setActiveTab(maincenter.add(moduleTab));
     }
 });
