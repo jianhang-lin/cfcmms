@@ -26,6 +26,9 @@ Ext.define('app.view.main.region.AccordionMainMenu', {
             hidden: false,
             handler: function () {
                 console.log("切换到标准菜单");
+                Ext.getCmp("mainmenutree").hide();
+                Ext.getCmp("mainmenuaccordion").hide();
+                Ext.getCmp("buttonmainmenu").show();
             }
         }, {
             type: 'collapse',
