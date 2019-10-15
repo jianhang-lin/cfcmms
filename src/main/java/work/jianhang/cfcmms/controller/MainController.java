@@ -29,6 +29,52 @@ public class MainController {
         map.put("main", mains);
         return map;
     }
+
+    @ResponseBody
+    @GetMapping("/system_menu")
+    public Map<String, Object> getSystemMenu() {
+        Map<String, Object> map = new HashMap<>();
+        List<Map<String, Object>> systemMenus = new ArrayList<>();
+        Map<String, Object> m1 = new HashMap<>();
+        m1.put("text", "工程管理");
+        m1.put("icon", "");
+        m1.put("glyph", 0);
+        m1.put("expanded", true);
+        m1.put("description", "");
+        List<SubItems> m1Items = new ArrayList<>();
+        m1Items.add(new SubItems("工程项目", "Global", "", 0xf0f7));
+        m1Items.add(new SubItems("工程标段", "Project", "", 0xf02e));
+        m1.put("items", m1Items);
+
+        Map<String, Object> m2 = new HashMap<>();
+        m2.put("text", "合同管理");
+        m2.put("expanded", true);
+        List<SubItems> m2Items = new ArrayList<>();
+        m2Items.add(new SubItems("项目合同", "Agreement", "", 0xf02d));
+        m2Items.add(new SubItems("合同付款计划", "AgreementPlan", "", 0xf03a));
+        m2Items.add(new SubItems("合同请款单", "Payment", "", 0xf022));
+        m2Items.add(new SubItems("合同付款单", "Payout", "", 0xf0d6));
+        m2Items.add(new SubItems("合同发票", "Invoice", "", 0xf0a0));
+        m2.put("items", m2Items);
+
+        Map<String, Object> m3 = new HashMap<>();
+        m3.put("text", "综合查询");
+        m3.put("glyph", 0xf0ce);
+        m3.put("expanded", true);
+        List<SubItems> m3Items = new ArrayList<>();
+        m3Items.add(new SubItems("项目合同台账", "Agreement", "", 0xf02d));
+        m3Items.add(new SubItems("合同付款计划台账", "AgreementPlan", "", 0xf03a));
+        m3Items.add(new SubItems("合同请款单台账", "Payment", "", 0xf022));
+        m3Items.add(new SubItems("合同付款单台账", "Payout", "", 0xf0d6));
+        m3Items.add(new SubItems("合同发票台账", "Invoice", "", 0xf0a0));
+        m3.put("items", m3Items);
+
+        systemMenus.add(m1);
+        systemMenus.add(m2);
+        systemMenus.add(m3);
+        map.put("systemMenu", systemMenus);
+        return map;
+    }
 }
 @Data
 @AllArgsConstructor
@@ -65,4 +111,19 @@ class Service {
     private String qq;
     private String email;
     private String copyright;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class SystemMenu {
+    private String text;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class SubItems {
+    private String text;
+    private String module;
+    private String icon;
+    private int glyph;
 }
