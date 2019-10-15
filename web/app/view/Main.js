@@ -9,13 +9,17 @@ Ext.define('app.view.Main', {
         type: 'border'
     },
     uses: [
-      'app.view.main.region.Top', 'app.view.main.region.Bottom'
+      'app.view.main.region.Top', 'app.view.main.region.Bottom', 'app.view.main.region.MainMenuToolbar'
     ],
     items: [
         {
             id: 'maintop',
             title: "",
             xtype: 'maintop',
+            region: 'north'
+        }, {
+            id: 'mainmenutoolbar',
+            xtype: 'mainmenutoolbar',
             region: 'north'
         }, {
             id: 'mainbottom',
