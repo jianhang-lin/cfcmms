@@ -6,6 +6,38 @@ Ext.define('app.view.main.region.MainMenuTree', {
     rootVisible: false,
     lines: true,
     viewModel: 'main',
+    tools: [
+        {
+            itemId: 'up',
+            type: 'up',
+            tooltip: '在上面显示菜单条',
+            hidden: false,
+            handler: function () {
+                console.log("在上面显示菜单条");
+            }
+        }, {
+            type: 'expand',
+            tooltip: '展开所有菜单项',
+            hidden: false,
+            handler: function () {
+                console.log("展开所有菜单项");
+            }
+        }, {
+            type: 'collapse',
+            tooltip: '折叠所有菜单项',
+            hidden: false,
+            handler: function () {
+                console.log("折叠所有菜单项");
+            }
+        }, {
+            type: 'pin',
+            tooltip: '层叠方式显示菜单',
+            hidden: false,
+            handler: function () {
+                console.log("层叠方式显示菜单");
+            }
+        }
+    ],
     initComponent: function () {
         console.log("MainMenuTree initComponent...");
         this.store = Ext.create('Ext.data.TreeStore', {
