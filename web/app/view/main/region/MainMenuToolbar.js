@@ -21,7 +21,20 @@ Ext.define("app.view.main.region.MainMenuToolbar", {
         }, {
             glyph: 0xf102,
             tooltip: '在顶部区域显示菜单',
-            disableMouseOver: true
+            disableMouseOver: true,
+            handler: function () {
+                console.log("showMainMenuToolbar...");
+                var tempItems = Ext.getCmp("mainmenutoolbar").items;
+                var mainmenutoolbarLength = tempItems.length;
+
+                for (var i=mainmenutoolbarLength - 1;i>1;i--) {
+                    if (Ext.getCmp(tempItems.get(i).id).hidden) {
+                        Ext.getCmp(tempItems.get(i).id).show();
+                    } else {
+                        Ext.getCmp(tempItems.get(i).id).hide();
+                    }
+                }
+            }
         }
     ],
     initComponent: function () {
