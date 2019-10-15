@@ -2,7 +2,8 @@ Ext.define("app.view.main.region.Top", {
     extend: "Ext.toolbar.Toolbar",
     alias: "widget.maintop",
     uses: [
-        'app.ux.ButtonTransparent'
+        'app.ux.ButtonTransparent',
+        'app.view.main.region.ButtonMainMenu'
     ],
     defaults: {
         xtype: 'buttontransparent'
@@ -24,20 +25,7 @@ Ext.define("app.view.main.region.Top", {
             xtype: 'label',
             text: ""
         }, '->', {
-            text: '菜单',
-            glyph: 0xf0c9,
-            menu: [
-                {
-                    text: '工程管理',
-                    menu: [
-                        {
-                            text: '工程项目'
-                        }, {
-                            text: '工程标段'
-                        }
-                    ]
-                }
-            ]
+            xtype: 'buttonmainmenu'
         }, ' ', ' ', {
             text: '主页',
             glyph: 0xf015
