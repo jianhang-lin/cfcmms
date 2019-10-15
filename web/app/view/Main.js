@@ -37,10 +37,12 @@ Ext.define('app.view.Main', {
             width: 250,
             split: true
         }, {
+            id: 'mainmenuaccordion',
             region: 'west',
             xtype: 'mainmenuaccordion',
             width: 250,
-            split: true
+            split: true,
+            hidden: true
         }, {
             region: 'center',
             xtype: 'tabpanel',

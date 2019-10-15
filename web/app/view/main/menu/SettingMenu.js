@@ -12,17 +12,24 @@ Ext.define('app.view.main.menu.SettingMenu', {
                     {
                         text: '标准菜单',
                         handler: function () {
-                            console.log("SettingMenu handler...");
-                            if (Ext.getCmp("mainmenutree").hidden) {
-                                Ext.getCmp("mainmenutree").show();
-                            } else {
-                                Ext.getCmp("mainmenutree").hide();
-                            }
+                            console.log("标准菜单 handler...");
+                            Ext.getCmp("mainmenutree").hide();
+                            Ext.getCmp("buttonmainmenu").hide();
                         }
                     }, {
                         text: '树形菜单',
+                        handler: function () {
+                            console.log("树形菜单 handler...");
+                            Ext.getCmp("mainmenutree").show();
+                            Ext.getCmp("buttonmainmenu").hide();
+                        }
                     }, {
                         text: '按钮菜单',
+                        handler: function () {
+                            console.log("按钮菜单 handler...");
+                            Ext.getCmp("mainmenutree").hide();
+                            Ext.getCmp("buttonmainmenu").show();
+                        }
                     }
                 ]
             }

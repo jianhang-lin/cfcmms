@@ -12,11 +12,13 @@ Ext.define("app.view.main.region.MainMenuToolbar", {
             margin: '0 -5 0 0',
             handler: function () {
                 console.log("showLeftMenuRegion..." + Ext.getCmp("mainmenutree").hidden);
-                if (Ext.getCmp("mainmenutree").hidden) {
+                /*if (Ext.getCmp("mainmenutree").hidden) {
                     Ext.getCmp("mainmenutree").show();
                 } else {
                     Ext.getCmp("mainmenutree").hide();
-                }
+                }*/
+                Ext.getCmp("mainmenutree").show();
+                Ext.getCmp("buttonmainmenu").hide();
             }
         }, {
             glyph: 0xf102,
@@ -24,7 +26,7 @@ Ext.define("app.view.main.region.MainMenuToolbar", {
             disableMouseOver: true,
             handler: function () {
                 console.log("showMainMenuToolbar...");
-                var tempItems = Ext.getCmp("mainmenutoolbar").items;
+                /*var tempItems = Ext.getCmp("mainmenutoolbar").items;
                 var mainmenutoolbarLength = tempItems.length;
 
                 for (var i=mainmenutoolbarLength - 1;i>1;i--) {
@@ -33,7 +35,9 @@ Ext.define("app.view.main.region.MainMenuToolbar", {
                     } else {
                         Ext.getCmp(tempItems.get(i).id).hide();
                     }
-                }
+                }*/
+                Ext.getCmp("mainmenutree").hide();
+                Ext.getCmp("buttonmainmenu").show();
             }
         }
     ],

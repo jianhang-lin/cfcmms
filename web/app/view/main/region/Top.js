@@ -26,7 +26,9 @@ Ext.define("app.view.main.region.Top", {
             xtype: 'label',
             text: ""
         }, '->', {
-            xtype: 'buttonmainmenu'
+            id: "buttonmainmenu",
+            xtype: 'buttonmainmenu',
+            hidden: true
         }, ' ', ' ', {
             text: '主页',
             glyph: 0xf015
