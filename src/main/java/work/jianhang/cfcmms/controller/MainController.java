@@ -75,6 +75,22 @@ public class MainController {
         map.put("systemMenu", systemMenus);
         return map;
     }
+
+    @ResponseBody
+    @GetMapping("/module")
+    public Map<String, Object> getModule() {
+        Map<String, Object> map = new HashMap<>();
+        List<Module> module = new ArrayList<>();
+        Module m = new Module();
+        m.setModuledId("1010");
+        m.setModuleGroup("工程管理");
+        m.setModuleName("Global");
+        m.setTitle("工程项目");
+        m.setGlyph(0xf0f7);
+        module.add(m);
+        map.put("module", module);
+        return map;
+    }
 }
 @Data
 @AllArgsConstructor
@@ -126,4 +142,19 @@ class SubItems {
     private String module;
     private String icon;
     private int glyph;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class Module {
+    private String moduledId;
+    private String moduleGroup;
+    private String moduleName;
+    private String title;
+    private int glyph;
+    private String shortName;
+    private String englishName;
+    private String englishShortName;
+    private String description;
+    private String remark;
 }
