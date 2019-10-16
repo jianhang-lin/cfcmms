@@ -1,4 +1,5 @@
 Ext.define("app.view.module.region.Grid",{
+    id: "modulegrid",
     extend: 'Ext.grid.Panel',
     alias: 'widget.modulegrid',
     uses: [
@@ -12,29 +13,6 @@ Ext.define("app.view.module.region.Grid",{
         }
     ],
     columnLines: true,
-    /*columns: [
-        {
-            dataIndex: 'name',
-            text: '工程项目名称',
-            width: 250
-        }, {
-            dataIndex: 'budget',
-            text: '投资总额'
-        }
-    ],*/
-    /*store: new Ext.data.Store({
-        fields: ['name', {
-            name: 'budget',
-            type: 'float'
-        }],
-        data: [{
-            name: '安居房建设工程',
-            budget: 1230000
-        }, {
-            name: '道路建设工程',
-            budget: 453092
-        }]
-    }),*/
     viewConfig: {
         stripeRows: true,
         enableTextSelection: true
