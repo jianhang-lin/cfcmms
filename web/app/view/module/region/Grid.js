@@ -43,5 +43,5 @@ Ext.define("app.view.module.region.Grid",{
             }
         });
         return data;
-    },
+    }
 });

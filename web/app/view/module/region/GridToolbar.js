@@ -81,7 +81,6 @@ Ext.define("app.view.module.region.GridToolbar", {
    addRecord: function () {
        console.log("addRecord...");
        var grid = Ext.getCmp("modulegrid");
-       debugger;
        var model = Ext.create(grid.getStore().model);
        model.set('id', 1);
        model.set('name', '太湖花园小区建设');
@@ -95,6 +94,7 @@ Ext.define("app.view.module.region.GridToolbar", {
        model.set('m3', 1239.24);
 
        grid.getStore().add(model);
+
        console.log(model);
        grid.getStore().sync();
    }
