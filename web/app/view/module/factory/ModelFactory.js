@@ -3,7 +3,6 @@ Ext.define("app.view.module.factory.ModelFactory", {
         getModelByModule: function (moduleModel) {
             console.log("ModelFactory getModelByModule moduleModel...");
             console.log(moduleModel);
-            debugger;
             var model  = Ext.define("app.model." + moduleModel.moduleName, {
                 extend: 'Ext.data.Model',
                 idProperty: moduleModel.primaryKey,
@@ -13,7 +12,6 @@ Ext.define("app.view.module.factory.ModelFactory", {
         },
 
         getFields: function (module) {
-            debugger;
             var fields = [];
             for (var i in module.fields) {
                 var fd = module.fields[i];
