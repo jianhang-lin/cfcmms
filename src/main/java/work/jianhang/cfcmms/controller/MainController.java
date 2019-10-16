@@ -5,15 +5,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class MainController {
+
+    private static List<Integer> ids = new ArrayList<>();
+    private static int index = 1;
+
+    static {
+        for (int i=1;i<100;i++) {
+            ids.add(i);
+        }
+    }
 
     @ResponseBody
     @GetMapping("/main")
@@ -266,6 +273,26 @@ public class MainController {
         map.put("module", module);
         return map;
     }
+
+    @ResponseBody
+    @PostMapping("/addRecord")
+    public Map<String, Object> addRecord() {
+        Map<String, Object> map = new HashMap<>();
+        ModuleGrid moduleGrid = new ModuleGrid();
+        moduleGrid.setId(ids.get(index++));
+        moduleGrid.setName("太湖花园小区建设");
+        moduleGrid.setCode("2004-01");
+        moduleGrid.setSquaremeter(12000L);
+        moduleGrid.setBudget(38000000L);
+        moduleGrid.setRjl(0.67f);
+        moduleGrid.setStartDate(new Date());
+        moduleGrid.setEndDate(new Date());
+        moduleGrid.setValid(false);
+        moduleGrid.setM3(1239.234f);
+        map.put("record", moduleGrid);
+        return map;
+    }
+
 }
 @Data
 @AllArgsConstructor
@@ -380,4 +407,19 @@ class GroupField {
     private int gridFieldOrder;
     private Long fieldId;
     private int columnWidth;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class ModuleGrid {
+    private int id;
+    private String name;
+    private String code;
+    private Long squaremeter;
+    private Long budget;
+    private float rjl;
+    private Date startDate;
+    private Date endDate;
+    private boolean isValid;
+    private float m3;
 }
