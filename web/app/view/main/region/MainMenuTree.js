@@ -125,7 +125,7 @@ Ext.define('app.view.main.region.MainMenuTree', {
         var maincenter = Ext.getCmp("maincenter");
         var moduleTab = Ext.create('app.view.module.Module', {
             closabel: true,
-            reorderable: true
+            title: r.data.text
         });
         maincenter.setActiveTab(maincenter.add(moduleTab));
     }
