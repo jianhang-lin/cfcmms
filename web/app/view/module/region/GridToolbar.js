@@ -27,7 +27,8 @@ Ext.define("app.view.module.region.GridToolbar", {
                    tooltip: '根据指定的excel表添好数据后，上传批量新增记录',
                    glyph: 0xf062
                }
-           ]
+           ],
+           handler: this.addRecord
        }, {
            text: '修改',
            glyph: 0xf044
@@ -76,5 +77,25 @@ Ext.define("app.view.module.region.GridToolbar", {
            width: 60
        }];
        this.callParent(arguments);
+   },
+   addRecord: function () {
+       console.log("addRecord...");
+       var grid = Ext.getCmp("modulegrid");
+       debugger;
+       var model = Ext.create(grid.getStore().model);
+       model.set('id', 1);
+       model.set('name', '太湖花园小区建设');
+       model.set('code', '2004-01');
+       model.set('squaremeter', 12000);
+       model.set('budget', 3800000);
+       model.set('rjl', 0.67);
+       model.set('startDate', new Date());
+       model.set('endDate', new Date());
+       model.set('isValid', false);
+       model.set('m3', 1239.24);
+
+       grid.getStore().add(model);
+       console.log(model);
+       grid.getStore().sync();
    }
 });
