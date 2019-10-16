@@ -32,5 +32,29 @@ Ext.define("app.view.module.region.Grid",{
             tf_name: '道路建设工程',
             tf_budget: 453092
         }]
-    })
+    }),
+    initComponent: function () {
+        console.log("Grid initComponent...");
+        var moduleTitle = this.getModuleTitle();
+        this.title = moduleTitle;
+        this.callParent(arguments);
+    },
+    getModuleTitle: function () {
+        console.log("Grid getModule...");
+        var title = "";
+        Ext.Ajax.request({
+            url: 'http://localhost:8080/module',
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            async: false,
+            success: function (response, options) {
+                var moduleData = Ext.decode(response.responseText).module;
+                title = moduleData[0].title;
+                return title;
+            }
+        });
+        return title;
+    },
 });
