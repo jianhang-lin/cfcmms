@@ -76,6 +76,7 @@ Ext.define("app.view.module.region.GridToolbar", {
        }, '-', '筛选', {
            width: 60
        }];
+
        this.callParent(arguments);
    },
    addRecord: function () {
@@ -98,8 +99,8 @@ Ext.define("app.view.module.region.GridToolbar", {
                model.set('squaremeter', record.squaremeter);
                model.set('budget', record.budget);
                model.set('rjl', record.rjl);
-               model.set('startDate', record.startDate);
-               model.set('endDate', record.endDate);
+               model.set('startDate', record.startDate.substring(0,10));
+               model.set('endDate', record.endDate.substring(0,10));
                model.set('isValid', record.valid);
                model.set('m3', record.m3);
                grid.getStore().add(model);

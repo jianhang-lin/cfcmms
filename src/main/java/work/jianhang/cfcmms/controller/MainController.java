@@ -14,10 +14,10 @@ import java.util.*;
 public class MainController {
 
     private static List<Integer> ids = new ArrayList<>();
-    private static int index = 1;
+    private static int index = 0;
 
     static {
-        for (int i=1;i<100;i++) {
+        for (int i=0;i<100;i++) {
             ids.add(i);
         }
     }
