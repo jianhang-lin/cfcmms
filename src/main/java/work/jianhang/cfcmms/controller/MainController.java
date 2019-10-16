@@ -197,12 +197,12 @@ public class MainController {
         List<GroupField> groupFields = new ArrayList<>();
         GroupField gf1 = new GroupField();
         gf1.setGridFieldOrder(10);
-        gf1.setFieldId(1010020L);
+        gf1.setFieldId(10100020L);
         gf1.setColumnWidth(200);
 
         GroupField gf2 = new GroupField();
         gf2.setGridFieldOrder(20);
-        gf2.setFieldId(1010030L);
+        gf2.setFieldId(10100030L);
         gf2.setColumnWidth(120);
 
         groupFields.add(gf1);
@@ -220,27 +220,27 @@ public class MainController {
         List<GroupField> groupFields2 = new ArrayList<>();
         GroupField gf3 = new GroupField();
         gf3.setGridFieldOrder(10);
-        gf3.setFieldId(1010040L);
+        gf3.setFieldId(10100040L);
 
         GroupField gf4 = new GroupField();
         gf4.setGridFieldOrder(20);
-        gf4.setFieldId(1010050L);
+        gf4.setFieldId(10100050L);
 
         GroupField gf5 = new GroupField();
         gf5.setGridFieldOrder(30);
-        gf5.setFieldId(1010060L);
+        gf5.setFieldId(10100060L);
 
         GroupField gf6 = new GroupField();
         gf6.setGridFieldOrder(40);
-        gf6.setFieldId(1010070L);
+        gf6.setFieldId(10100070L);
 
         GroupField gf7 = new GroupField();
         gf7.setGridFieldOrder(50);
-        gf7.setFieldId(1010080L);
+        gf7.setFieldId(10100080L);
 
         GroupField gf8 = new GroupField();
         gf8.setGridFieldOrder(60);
-        gf8.setFieldId(1010090L);
+        gf8.setFieldId(10100090L);
         gf8.setColumnWidth(80);
 
         GroupField gf9 = new GroupField();
