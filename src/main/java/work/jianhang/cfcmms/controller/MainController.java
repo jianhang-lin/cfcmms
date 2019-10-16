@@ -182,6 +182,86 @@ public class MainController {
         fields.add(f9);
         fields.add(f10);
         m.setFields(fields);
+
+        List<GridScheme> gridSchemes = new ArrayList<>();
+        GridScheme g = new GridScheme();
+        g.setSchemeOrder(10);
+        g.setSchemeName("Grid方案1");
+        List<SchemeGroup> schemeGroups = new ArrayList<>();
+        SchemeGroup sg1 = new SchemeGroup();
+        sg1.setGridGroupId(1);
+        sg1.setGridGroupOrder(10);
+        sg1.setGridGroupName("工程项目基本信息");
+        sg1.setShowHeaderSpans(true);
+        sg1.setLocked(true);
+        List<GroupField> groupFields = new ArrayList<>();
+        GroupField gf1 = new GroupField();
+        gf1.setGridFieldOrder(10);
+        gf1.setFieldId(1010020L);
+        gf1.setColumnWidth(200);
+
+        GroupField gf2 = new GroupField();
+        gf2.setGridFieldOrder(20);
+        gf2.setFieldId(1010030L);
+        gf2.setColumnWidth(120);
+
+        groupFields.add(gf1);
+        groupFields.add(gf2);
+
+        sg1.setGroupFields(groupFields);
+        schemeGroups.add(sg1);
+
+        SchemeGroup sg2 = new SchemeGroup();
+        //sg1.setGridGroupId(1);
+        sg2.setGridGroupOrder(20);
+        sg2.setGridGroupName("工程项目附加信息");
+        sg2.setShowHeaderSpans(true);
+        sg2.setLocked(false);
+        List<GroupField> groupFields2 = new ArrayList<>();
+        GroupField gf3 = new GroupField();
+        gf3.setGridFieldOrder(10);
+        gf3.setFieldId(1010040L);
+
+        GroupField gf4 = new GroupField();
+        gf4.setGridFieldOrder(20);
+        gf4.setFieldId(1010050L);
+
+        GroupField gf5 = new GroupField();
+        gf5.setGridFieldOrder(30);
+        gf5.setFieldId(1010060L);
+
+        GroupField gf6 = new GroupField();
+        gf6.setGridFieldOrder(40);
+        gf6.setFieldId(1010070L);
+
+        GroupField gf7 = new GroupField();
+        gf7.setGridFieldOrder(50);
+        gf7.setFieldId(1010080L);
+
+        GroupField gf8 = new GroupField();
+        gf8.setGridFieldOrder(60);
+        gf8.setFieldId(1010090L);
+        gf8.setColumnWidth(80);
+
+        GroupField gf9 = new GroupField();
+        gf9.setGridFieldOrder(70);
+        gf9.setFieldId(10100100L);
+
+        groupFields2.add(gf3);
+        groupFields2.add(gf4);
+        groupFields2.add(gf5);
+        groupFields2.add(gf6);
+        groupFields2.add(gf7);
+        groupFields2.add(gf8);
+        groupFields2.add(gf9);
+
+        sg2.setGroupFields(groupFields2);
+        schemeGroups.add(sg2);
+
+        g.setSchemeGroups(schemeGroups);
+
+        gridSchemes.add(g);
+        m.setGridSchemes(gridSchemes);
         module.add(m);
         map.put("module", module);
         return map;
@@ -256,7 +336,7 @@ class Module {
     private String primaryKey;
     private String nameFields;
     private List<Field> fields;
-    private String gridSchemes;
+    private List<GridScheme> gridSchemes;
 }
 @Data
 @AllArgsConstructor
@@ -273,4 +353,31 @@ class Field {
     private boolean hidden;
     private String fieldGroup;
     private boolean allowSummary;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class GridScheme {
+    private int schemeOrder;
+    private String schemeName;
+    private List<SchemeGroup> schemeGroups;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class SchemeGroup {
+    private int gridGroupId;
+    private int gridGroupOrder;
+    private String gridGroupName;
+    private boolean showHeaderSpans;
+    private boolean locked;
+    private List<GroupField> groupFields;
+}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class GroupField {
+    private int gridFieldOrder;
+    private Long fieldId;
+    private int columnWidth;
 }
