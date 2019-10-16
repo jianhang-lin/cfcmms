@@ -15,6 +15,7 @@ Ext.define('app.view.module.Module', {
    },
    layout: 'border',
    initComponent: function () {
+       console.log("Module initComponent..");
        this.items = [{
            xtype: 'navigate',
            region: 'west',
