@@ -87,6 +87,9 @@ public class MainController {
         m.setModuleName("Global");
         m.setTitle("工程项目");
         m.setGlyph(0xf0f7);
+
+        m.setPrimaryKey("id");
+        m.setNameFields("name");
         module.add(m);
         map.put("module", module);
         return map;
@@ -157,4 +160,9 @@ class Module {
     private String englishShortName;
     private String description;
     private String remark;
+
+    private String primaryKey;
+    private String nameFields;
+    private String fields;
+    private String gridSchemes;
 }
