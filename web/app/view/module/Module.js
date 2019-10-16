@@ -16,6 +16,7 @@ Ext.define('app.view.module.Module', {
    layout: 'border',
    initComponent: function () {
        console.log("Module initComponent..");
+       this.glyph = this.getGlyph();
        this.items = [{
            xtype: 'navigate',
            region: 'west',
@@ -34,5 +35,23 @@ Ext.define('app.view.module.Module', {
            split: true
        }];
        this.callParent(arguments);
+   },
+   getGlyph: function () {
+       console.log("getGlyph");
+       var glyph = "";
+       Ext.Ajax.request({
+           url: 'http://localhost:8080/module',
+           method: 'get',
+           headers: {
+               'Content-Type': 'application/json'
+           },
+           async: false,
+           success: function (response, options) {
+               var moduleData = Ext.decode(response.responseText).module;
+               glyph = moduleData[0].glyph;
+               return glyph;
+           }
+       });
+       return glyph;
    }
 });
