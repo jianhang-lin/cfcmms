@@ -1,7 +1,7 @@
 Ext.define("app.view.module.factory.ColumnsFactory", {
     statics: {
-        getColumns: function (moduleModel, schemeOrderId) {
-            var scheme = moduleModel.get('gridSchemes')[0];
+        getColumns: function (moduleData, schemeOrderId) {
+            var scheme = moduleData.gridSchemes[0];
             var columns = [];
             for (var i in scheme.schemeGroups) {
                 var sg = scheme.schemeGroups[i];
@@ -11,16 +11,16 @@ Ext.define("app.view.module.factory.ColumnsFactory", {
                     text: sg.gridGroupName,
                     locked: sg.locked,
                     columns:[]
-                }
+                };
 
                 for (var j in sg.groupFields) {
                     var gf = sg.groupFields[j];
-                    var fd = moduleModel.getFieldDefine(gf.fieldId);
+                    var fd = this.getFieldDefine(gf.fieldId, moduleData.fields);
                     var field;
                     if (fd.hidden) {
                         continue;
                     }
-                    field = this.getColumn(gf, fd, moduleModel);
+                    field = this.getColumn(gf, fd, moduleData);
                     field.locked = sg.locked;
                     if (isGroup) {
                         this.canReduceTitle(group, field);
@@ -90,7 +90,8 @@ Ext.define("app.view.module.factory.ColumnsFactory", {
                     Ext.apply(field, {
                         align: 'center',
                         xtype: 'numbercolumn',
-                        width: 110
+                        tdCls: 'intcolor',
+                        format: '#'
                     });
                     break;
                 case 'Percent':
@@ -122,6 +123,17 @@ Ext.define("app.view.module.factory.ColumnsFactory", {
 
         nameFieldRenderer: function (val, rd, model, row, col, store, gridview) {
             return filterTextSetBk(store, '<strong>' + val + "</strong>>");
+        },
+
+        getFieldDefine: function (fieldId, fields) {
+            for (var i=0;i<fields.length;i++) {
+                var field = fields[i];
+                if (field.fieldId === fieldId) {
+                    console.log(field);
+                    return field;
+                }
+            }
+            return null;
         }
     }
 });
