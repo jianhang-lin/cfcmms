@@ -82,20 +82,28 @@ Ext.define("app.view.module.region.GridToolbar", {
        console.log("addRecord...");
        var grid = Ext.getCmp("modulegrid");
        var model = Ext.create(grid.getStore().model);
-       model.set('id', 1);
-       model.set('name', '太湖花园小区建设');
-       model.set('code', '2004-01');
-       model.set('squaremeter', 12000);
-       model.set('budget', 3800000);
-       model.set('rjl', 0.67);
-       model.set('startDate', new Date());
-       model.set('endDate', new Date());
-       model.set('isValid', false);
-       model.set('m3', 1239.24);
 
-       grid.getStore().add(model);
-
-       console.log(model);
-       grid.getStore().sync();
+       Ext.Ajax.request({
+           url: 'http://localhost:8080/addRecord',
+           method: 'post',
+           headers: {
+               'Content-Type': 'application/json'
+           },
+           async: false,
+           success: function (response, options) {
+               var record = Ext.decode(response.responseText).record;
+               model.set('id', record.id);
+               model.set('name', record.name);
+               model.set('code', record.code);
+               model.set('squaremeter', record.squaremeter);
+               model.set('budget', record.budget);
+               model.set('rjl', record.rjl);
+               model.set('startDate', record.startDate);
+               model.set('endDate', record.endDate);
+               model.set('isValid', record.valid);
+               model.set('m3', record.m3);
+               grid.getStore().add(model);
+           }
+       });
    }
 });
