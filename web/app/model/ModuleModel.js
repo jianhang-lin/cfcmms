@@ -10,6 +10,11 @@ Ext.define("app.model.ModuleModel", {
         "englishName",
         "englishShortName",
         "description",
-        "remark"
+        "remark",
+
+        "primaryKey",
+        "nameFields",
+        "fields",
+        "gridSchemes"
     ]
 });
