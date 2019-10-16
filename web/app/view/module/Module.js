@@ -2,7 +2,8 @@ Ext.define('app.view.module.Module', {
    extend: 'Ext.panel.Panel',
    alias: 'widget.modulepanel',
    requires: [
-
+       'app.model.ModuleModel',
+       'app.view.module.factory.ModelFactory'
    ],
    uses: [
        'app.view.module.region.Navigate',
@@ -16,7 +17,18 @@ Ext.define('app.view.module.Module', {
    layout: 'border',
    initComponent: function () {
        console.log("Module initComponent..");
-       this.glyph = this.getGlyph();
+       var moduleData = this.getModuleData();
+       this.glyph = moduleData.glyph;
+       this.model = app.view.module.factory.ModelFactory.getModelByModule(moduleData);
+       console.log(this.model);
+       this.store = new Ext.data.Store({
+           model: this.model,
+           autoLoad: true,
+           proxy: {
+               type: 'localstorage',
+               id: 'module' + '__' + moduleData.moduleName
+           }
+       });
        this.items = [{
            xtype: 'navigate',
            region: 'west',
@@ -25,7 +37,8 @@ Ext.define('app.view.module.Module', {
            split: true
        }, {
            xtype: 'modulegrid',
-           region: 'center'
+           region: 'center',
+           store: this.store
        }, {
            xtype: 'recorddetail',
            region: 'east',
@@ -36,9 +49,9 @@ Ext.define('app.view.module.Module', {
        }];
        this.callParent(arguments);
    },
-   getGlyph: function () {
+   getModuleData: function () {
        console.log("getGlyph");
-       var glyph = "";
+       var data = null;
        Ext.Ajax.request({
            url: 'http://localhost:8080/module',
            method: 'get',
@@ -48,10 +61,10 @@ Ext.define('app.view.module.Module', {
            async: false,
            success: function (response, options) {
                var moduleData = Ext.decode(response.responseText).module;
-               glyph = moduleData[0].glyph;
-               return glyph;
+               data = moduleData[0];
+               return data;
            }
        });
-       return glyph;
+       return data;
    }
 });

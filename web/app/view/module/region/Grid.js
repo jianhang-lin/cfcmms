@@ -12,7 +12,7 @@ Ext.define("app.view.module.region.Grid",{
         }
     ],
     columnLines: true,
-    columns: [
+    /*columns: [
         {
             dataIndex: 'name',
             text: '工程项目名称',
@@ -21,8 +21,8 @@ Ext.define("app.view.module.region.Grid",{
             dataIndex: 'budget',
             text: '投资总额'
         }
-    ],
-    store: new Ext.data.Store({
+    ],*/
+    /*store: new Ext.data.Store({
         fields: ['name', {
             name: 'budget',
             type: 'float'
@@ -34,7 +34,7 @@ Ext.define("app.view.module.region.Grid",{
             name: '道路建设工程',
             budget: 453092
         }]
-    }),
+    }),*/
     viewConfig: {
         stripeRows: true,
         enableTextSelection: true
